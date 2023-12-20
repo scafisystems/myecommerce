@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">myecommerce</string>
+    <string name="main_total_sell_value">Total de vendas: R$</string>
+    <string name="main_my_e_commerce_app">My E-commerce app</string>
+    <string name="main_make_sell">Fazer uma venda</string>
+    <string name="main_see_sells">Visualizar vendas</string>
+    <string name="orders_all_orders">Todos os Pedidos</string>
+    <string name="orders_number_orders">Número de pedidos: </string>
+    <string name="client">Cliente:</string>
+    <string name="valor_total_pedido">Valor Total Pedido:</string>
+    <string name="quantidade_de_produtos">Quantidade de produtos:</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="valor_total_do_pedido">Valor total do pedido:</string>
+    <string name="qtd_total_de_itens">Qtd. total de itens:</string>
+    <string name="incluir">Incluir</string>
+    <string name="cliente">Cliente:</string>
+    <string name="numero_do_pedido">Numero do pedido:</string>
+    <string name="novo_pedido">Novo Pedido</string>
 </resources>

@@ -38,7 +38,7 @@ class OrderActivity : AppCompatActivity() {
             }
 
             btnOrderSave.setOnClickListener {
-                viewModel.saveOrder(editClientName.toString())
+                viewModel.saveOrder(editClientName.text.toString())
                 clearFields()
                 onBackPressedDispatcher.onBackPressed()
             }

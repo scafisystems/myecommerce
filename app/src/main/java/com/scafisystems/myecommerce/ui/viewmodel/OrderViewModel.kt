@@ -1,5 +1,6 @@
 package com.scafisystems.myecommerce.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +13,13 @@ import kotlinx.coroutines.launch
 
 class OrderViewModel: ViewModel() {
 
-    private val _orders = MutableLiveData<MutableList<Order>>().apply { value = mutableListOf() }
+    private val _orders = MutableLiveData<MutableList<Order>>().apply {
+        CoroutineScope(Dispatchers.Main).launch {
+            val invoke = useCases.getAllOrdersUseCase.invoke()
+            value = invoke as MutableList<Order>
+            Log.i("wer", "$value: ")
+        }
+    }
     val orders: LiveData<MutableList<Order>> = _orders
 
     private val _currentProductList =
@@ -29,7 +36,7 @@ class OrderViewModel: ViewModel() {
         _currentProductList.value = mutableListOf()
 
         CoroutineScope(Dispatchers.IO).launch {
-     //       useCases.saveOrderUseCase.invoke(order)
+            useCases.saveOrderUseCase.invoke(order)
         }
 
     }
@@ -42,10 +49,6 @@ class OrderViewModel: ViewModel() {
             val newProduct = Product(0, name, quantityInt, unitValueDouble)
             list?.add(newProduct)
             _currentProductList.value = list
-
-            CoroutineScope(Dispatchers.IO).launch {
-        //        useCases.saveProductUseCase.invoke(newProduct)
-            }
         }
 
 

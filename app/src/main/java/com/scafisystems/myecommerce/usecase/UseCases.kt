@@ -1,4 +1,4 @@
-package com.scafisystems.myecommerce.framework
+package com.scafisystems.myecommerce.usecase
 
 import com.scafisystems.core.usecase.GetAllOrdersUseCase
 import com.scafisystems.core.usecase.GetAllProductsUseCase

@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:text="Novo Pedido"
+                    android:text="@string/novo_pedido"
                     android:textSize="36sp"
                     android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Numero do pedido: "
+                        android:text="@string/numero_do_pedido"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -65,7 +65,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cliente: "
+                        android:text="@string/cliente"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="Incluir" />
+                    android:text="@string/incluir" />
 
                 <View
                     android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Qtd. total de itens: "
+                        android:text="@string/qtd_total_de_itens"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -136,7 +136,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Valor total do pedido: "
+                        android:text="@string/valor_total_do_pedido"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -160,7 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Cancelar" />
+                        android:text="@string/cancelar" />
 
                     <Button
                         android:id="@+id/btn_order_save"
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Salvar" />
+                        android:text="@string/salvar" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

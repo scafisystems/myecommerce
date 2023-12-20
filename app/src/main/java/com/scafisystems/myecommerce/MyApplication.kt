@@ -2,7 +2,7 @@ package com.scafisystems.myecommerce
 
 import android.app.Application
 import android.content.Context
-import com.scafisystems.myecommerce.framework.di.MyDI
+import com.scafisystems.myecommerce.di.MyDI
 
 //import androidx.room.Room
 //import com.scafisystems.myecommerce.database.room.AppDatabase
