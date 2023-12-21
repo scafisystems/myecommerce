@@ -9,14 +9,15 @@ import androidx.databinding.DataBindingUtil
 import com.scafisystems.myecommerce.MyApplication
 import com.scafisystems.myecommerce.R
 import com.scafisystems.myecommerce.databinding.FragmentHomeBinding
+import com.scafisystems.myecommerce.ui.view.navigation.Destinations
+import com.scafisystems.myecommerce.ui.view.navigation.OrderNavigationManager
 import com.scafisystems.myecommerce.ui.viewmodel.OrderViewModel
 import com.scafisystems.myecommerce.util.Extensiona.toFormatString
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: OrderViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +29,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = MyApplication.di.orderViewModelInjection(this)
 
         setupViews()
         setupObservers()
@@ -42,17 +42,11 @@ class HomeFragment : Fragment() {
 
     private fun setupViews() {
         binding.btnNewOrder.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, NewOrderFragment())
-                .addToBackStack(null)
-                .commit()
+            navigationManager.navigateTo(Destinations.NEW_ORDER)
         }
 
         binding.btnAllOrder.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, AllOrdersFragment())
-                .addToBackStack(null)
-                .commit()
+            navigationManager.navigateTo(Destinations.ALL_ORDERS)
         }
     }
 

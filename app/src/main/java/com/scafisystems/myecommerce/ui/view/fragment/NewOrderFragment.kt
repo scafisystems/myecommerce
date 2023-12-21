@@ -13,6 +13,7 @@ import com.scafisystems.myecommerce.databinding.FragmentNewOrderBinding
 import com.scafisystems.myecommerce.ui.model.ProductItem
 import com.scafisystems.myecommerce.ui.view.adapter.ProductAdapter
 import com.scafisystems.myecommerce.ui.view.dialog.DialogAddProduct
+import com.scafisystems.myecommerce.ui.view.navigation.OrderNavigationManager
 import com.scafisystems.myecommerce.ui.viewmodel.OrderViewModel
 import com.scafisystems.myecommerce.util.Extensiona.toFormatString
 
@@ -21,6 +22,7 @@ class NewOrderFragment : Fragment() {
     private lateinit var binding: FragmentNewOrderBinding
     private lateinit var viewModel: OrderViewModel
     private lateinit var productAdapter: ProductAdapter
+    private lateinit var navigationManager: OrderNavigationManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class NewOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = MyApplication.di.orderViewModelInjection(this)
+        navigationManager = MyApplication.di.navigationInjection(childFragmentManager)
 
         setupViews()
         setupObservers()
@@ -48,11 +51,11 @@ class NewOrderFragment : Fragment() {
             btnOrderSave.setOnClickListener {
                 viewModel.saveOrder(editClientName.text.toString())
                 clearFields()
-                requireActivity().onBackPressedDispatcher.onBackPressed()
+                navigationManager.navigateBack()
             }
 
             btnOrderCancel.setOnClickListener {
-                requireActivity().onBackPressedDispatcher.onBackPressed()
+                navigationManager.navigateBack()
             }
 
             tvOrderNumber.text = " ${viewModel.getNextOrderNumber()}"
