@@ -5,8 +5,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.scafisystems.core.repository.OrderRepository
 import com.scafisystems.core.repository.ProductRepository
+import com.scafisystems.core.usecase.DeleteOrderUseCase
 import com.scafisystems.core.usecase.GetAllOrdersUseCase
 import com.scafisystems.core.usecase.GetAllProductsUseCase
+import com.scafisystems.core.usecase.GetOrderUseCase
 import com.scafisystems.core.usecase.SaveOrderUseCase
 import com.scafisystems.core.usecase.SaveProductUseCase
 import com.scafisystems.myecommerce.usecase.UseCases
@@ -36,7 +38,9 @@ class MyDI(private val application: Application) {
                 GetAllOrdersUseCase(orderRepositoryInjection()),
                 SaveOrderUseCase(orderRepositoryInjection()),
                 GetAllProductsUseCase(productRepositoryInjection()),
-                SaveProductUseCase(productRepositoryInjection())
+                SaveProductUseCase(productRepositoryInjection()),
+                DeleteOrderUseCase(orderRepositoryInjection()),
+                GetOrderUseCase(orderRepositoryInjection())
             )
         }
         return useCases

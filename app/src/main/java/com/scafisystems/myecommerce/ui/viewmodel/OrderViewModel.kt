@@ -11,13 +11,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class OrderViewModel: ViewModel() {
+class OrderViewModel : ViewModel() {
 
     private val _orders = MutableLiveData<MutableList<Order>>().apply {
         CoroutineScope(Dispatchers.Main).launch {
-            val invoke = useCases.getAllOrdersUseCase.invoke()
-            value = invoke as MutableList<Order>
-            Log.i("wer", "$value: ")
+            val orderList = useCases.getAllOrdersUseCase.invoke()
+            value = orderList as MutableList<Order>
         }
     }
     val orders: LiveData<MutableList<Order>> = _orders
@@ -28,10 +27,22 @@ class OrderViewModel: ViewModel() {
 
     private val useCases = MyApplication.di.useCasesInjection()
 
-    fun getNextOrderNumber(): Long = ((_orders.value?.size?.toLong() ?: 0) + 1L)
+    private lateinit var orderSelected: Order
+
+    fun getNextOrderNumber(): Long {
+        if (_orders.value.isNullOrEmpty().not())
+            return orders.value?.maxOf { it.id }?.plus(1L) ?: 1L
+        return 1L
+    }
 
     fun saveOrder(client: String) {
-        val order = Order(getNextOrderNumber(), client, _currentProductList.value!!.toList(), totalProductsQuantity()!!, totalProductsValue()!!)
+        val order = Order(
+            getNextOrderNumber(),
+            client,
+            _currentProductList.value!!.toList(),
+            totalProductsQuantity()!!,
+            totalProductsValue()!!
+        )
         _orders.value?.add(order)
         _currentProductList.value = mutableListOf()
 
@@ -39,6 +50,13 @@ class OrderViewModel: ViewModel() {
             useCases.saveOrderUseCase.invoke(order)
         }
 
+    }
+
+    fun deleteOrder() {
+        _orders.value?.remove(orderSelected)
+        CoroutineScope(Dispatchers.IO).launch {
+            useCases.deleteOrderUseCase.invoke(orderSelected)
+        }
     }
 
     fun addProduct(name: String, quantity: String, unitValue: String) {
@@ -55,6 +73,16 @@ class OrderViewModel: ViewModel() {
     }
 
     fun totalProductsQuantity(): Int? = _currentProductList.value?.toList()?.sumOf { it.quantity }
-    fun totalProductsValue(): Double? = _currentProductList.value?.toList()?.sumOf { it.getProductTotal() }
+    fun totalProductsValue(): Double? =
+        _currentProductList.value?.toList()?.sumOf { it.getProductTotal() }
+
     fun totalOrdersValue(): Double? = _orders.value?.toList()?.sumOf { it.totalOrder }
+
+    fun getSelectedOrder(): Order {
+        return orderSelected
+    }
+
+    fun setSelectedOrder(orderId: Int) {
+        orderSelected = _orders.value!![orderId]
+    }
 }

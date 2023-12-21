@@ -16,7 +16,7 @@ class OrderRepository(private val orderDataSource: OrderDataSource) {
         orderDataSource.deleteOrder(orderId)
     }
 
-    suspend fun getClimate(orderId: Long): Order {
+    suspend fun getOrder(orderId: Long): Order {
         return orderDataSource.getOrder(orderId)
     }
 }

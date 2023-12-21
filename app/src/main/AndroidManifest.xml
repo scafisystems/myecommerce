@@ -14,13 +14,7 @@
         android:theme="@style/Theme.Myecommerce"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.activity.AllOrdersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.view.activity.OrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.view.activity.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

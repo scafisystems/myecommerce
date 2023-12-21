@@ -7,7 +7,7 @@ import com.scafisystems.myecommerce.databinding.*
 import com.scafisystems.myecommerce.ui.model.OrdersItem
 
 
-class OrdersAdapter(private val ordersList: List<OrdersItem>) :
+class OrdersAdapter(private val ordersList: List<OrdersItem>, private val itemClickListener: OnOrderItemClickListener) :
     RecyclerView.Adapter<OrdersViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrdersViewHolder {
@@ -18,9 +18,13 @@ class OrdersAdapter(private val ordersList: List<OrdersItem>) :
 
     override fun onBindViewHolder(holder: OrdersViewHolder, position: Int) {
         val order = ordersList[position]
-        holder.clientName.text = order.clientName
-        holder.itemsQuantity.text = order.itemsQuantity.toString()
-        holder.ordersTotalValue.text = order.ordersTotalValue
+        holder.clientName.text = " " + order.clientName
+        holder.itemsQuantity.text = " " + order.itemsQuantity.toString()
+        holder.ordersTotalValue.text = "R$ ${order.ordersTotalValue}"
+
+        holder.itemView.setOnClickListener {
+            itemClickListener.onOrderItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {

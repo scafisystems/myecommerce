@@ -18,10 +18,10 @@ class ProductAdapter(private val productList: List<ProductItem>) :
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
-        holder.productName.text = product.productName
-        holder.productQuantity.text = product.productQuantity.toString()
-        holder.productUnityValue.text = product.productUnityValue
-        holder.productTotalValue.text = product.productTotalValue
+        holder.productName.text = " " + product.productName
+        holder.productQuantity.text = " " + product.productQuantity.toString()
+        holder.productUnityValue.text = "R$ ${product.productUnityValue}"
+        holder.productTotalValue.text = "R$ ${product.productTotalValue}"
     }
 
     override fun getItemCount(): Int {
