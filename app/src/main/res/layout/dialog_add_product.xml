@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -21,28 +20,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Produto "
+                android:text="@string/produto"
                 android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/edit_product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome do Produto"
+                android:hint="@string/nome_do_produto"
                 android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edit_product_quantidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Quantidade"
+                android:hint="@string/quantidade"
+                android:inputType="numberDecimal"
                 android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edit_product_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Valor Unitário"
+                android:hint="@string/valor_unit_rio"
+                android:inputType="numberDecimal"
                 android:textSize="20sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -55,15 +56,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="start"
-                    android:text="Cancel" />
+                    android:text="@string/cancelar" />
 
                 <Button
                     android:id="@+id/btn_product_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="end"
                     android:layout_marginStart="24dp"
-                    android:text="Incluir" />
+                    android:gravity="end"
+                    android:text="@string/incluir" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

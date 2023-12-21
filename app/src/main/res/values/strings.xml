@@ -17,7 +17,13 @@
     <string name="cliente">Cliente:</string>
     <string name="numero_do_pedido">Numero do pedido:</string>
     <string name="novo_pedido">Novo Pedido</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="excluir">Excluir</string>
+    <string name="todos_os_campos_devem_ser_preenchidos">Todos os campos devem ser preenchidos</string>
+    <string name="no_int">Favor preencher a Quantidade com um número válido</string>
+    <string name="no_double">Favor preencher a Valor com um número válido</string>
+    <string name="valor_unit_rio">Valor Unitário</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="nome_do_produto">Nome do Produto</string>
+    <string name="produto">Produto</string>
 </resources>

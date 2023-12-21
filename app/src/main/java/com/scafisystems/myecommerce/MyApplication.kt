@@ -8,7 +8,7 @@ import com.scafisystems.myecommerce.di.MyDI
 class MyApplication : Application() {
 
     companion object {
-        lateinit var di : MyDI
+        lateinit var di: MyDI
         lateinit var myApplicationContext: Context
     }
 

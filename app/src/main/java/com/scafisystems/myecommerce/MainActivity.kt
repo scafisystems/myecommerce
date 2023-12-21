@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.scafisystems.myecommerce.databinding.ActivityMainBinding
-import com.scafisystems.myecommerce.ui.view.navigation.Destinations
-import com.scafisystems.myecommerce.ui.view.navigation.OrderNavigationManager
+import com.scafisystems.myecommerce.presentation.view.navigation.Destinations
+import com.scafisystems.myecommerce.presentation.view.navigation.OrderNavigationManager
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

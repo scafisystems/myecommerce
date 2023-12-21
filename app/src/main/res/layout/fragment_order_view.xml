@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
-            tools:context=".ui.view.activity.OrderActivity">
+            tools:context=".presentation.view.activity.OrderActivity">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -83,6 +83,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12sp"
+                    android:background="#ABC3C1C1"
+                    android:padding="8dp"
                     tools:itemCount="2"
                     tools:listitem="@layout/product_item" />
 

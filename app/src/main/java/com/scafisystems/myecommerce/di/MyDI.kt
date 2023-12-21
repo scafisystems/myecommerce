@@ -4,20 +4,20 @@ import android.app.Application
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.scafisystems.core.repository.OrderRepository
-import com.scafisystems.core.repository.ProductRepository
-import com.scafisystems.core.usecase.DeleteOrderUseCase
-import com.scafisystems.core.usecase.GetAllOrdersUseCase
-import com.scafisystems.core.usecase.GetAllProductsUseCase
-import com.scafisystems.core.usecase.GetOrderUseCase
-import com.scafisystems.core.usecase.SaveOrderUseCase
-import com.scafisystems.core.usecase.SaveProductUseCase
+import com.scafisystems.core.data.repository.OrderRepository
+import com.scafisystems.core.data.repository.ProductRepository
+import com.scafisystems.core.domain.usecase.DeleteOrderUseCase
+import com.scafisystems.core.domain.usecase.GetAllOrdersUseCase
+import com.scafisystems.core.domain.usecase.GetAllProductsUseCase
+import com.scafisystems.core.domain.usecase.GetOrderUseCase
+import com.scafisystems.core.domain.usecase.SaveOrderUseCase
+import com.scafisystems.core.domain.usecase.SaveProductUseCase
 import com.scafisystems.myecommerce.R
-import com.scafisystems.myecommerce.usecase.UseCases
-import com.scafisystems.myecommerce.db.DatabaseManager
-import com.scafisystems.myecommerce.db.OrderAndProductDatasource
-import com.scafisystems.myecommerce.ui.view.navigation.OrderNavigationManager
-import com.scafisystems.myecommerce.ui.viewmodel.OrderViewModel
+import com.scafisystems.myecommerce.domain.usecase.UseCases
+import com.scafisystems.myecommerce.data.db.DatabaseManager
+import com.scafisystems.myecommerce.data.db.OrderAndProductDatasource
+import com.scafisystems.myecommerce.presentation.view.navigation.OrderNavigationManager
+import com.scafisystems.myecommerce.presentation.viewmodel.OrderViewModel
 
 class MyDI(private val application: Application) {
 
