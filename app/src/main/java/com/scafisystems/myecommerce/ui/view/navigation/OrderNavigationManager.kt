@@ -2,6 +2,7 @@ package com.scafisystems.myecommerce.ui.view.navigation
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.scafisystems.myecommerce.R
 import com.scafisystems.myecommerce.ui.view.fragment.AllOrdersFragment
 import com.scafisystems.myecommerce.ui.view.fragment.HomeFragment
 import com.scafisystems.myecommerce.ui.view.fragment.NewOrderFragment
